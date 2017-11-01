@@ -8,6 +8,7 @@
 #include <DXUT.h>
 #include "RT.hpp"
 #include "Sphere.hpp"
+#include "Plan.hpp"
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <cuda_gl_interop.h>
@@ -32,9 +33,14 @@ int main(int argc, char** argv)
 {
 
 
-	RT rt = RT(20, 640, 480);
-
-	rt.generate(500, 0, 1500, -25, 25, -25, 25);
+	RT rt = RT(1, 1024, 768);
+	Sphere* s = new Sphere(5);
+	s->o.y += 3;
+	rt.scene[0] = s;
+	/*
+	Plan* p = new Plan();
+	p->o.x = 50;
+	rt.scene[0] = p;*/
 	clock_t tStart = clock();
 	rt.render();
 	printf("Time taken: %.2fs\n", (double)(clock() - tStart) / CLOCKS_PER_SEC);

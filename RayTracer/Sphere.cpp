@@ -14,8 +14,40 @@ Sphere::Sphere(float r) : Objet()
 
 bool Sphere::intersection(D3DXVECTOR3& A, D3DXVECTOR3& u)
 {
-	//return D3DXSphereBoundProbe(&o, r, &A, &u);
+	D3DXVec3Normalize(&u, &u);
+	D3DXVECTOR3 L = o - A;
+	float tca = D3DXVec3Dot(&L, &u);
+	if (tca < 0)
+	{
+		return false;
+	}
+	float d2 = D3DXVec3Dot(&L, &L) - tca*tca;
+	if (d2 > r*r)
+	{
+		return false;
+	}
+	float thc = sqrtf(r*r - d2);
+	float t0 = tca - thc;
+	float t1 = tca + thc;
+	if (t0 > t1)
+	{
+		std::swap(t0, t1);
+	}
+	if (t0 < 0)
+	{
+		t0 = t1;
+		if (t0 < 0)
+		{
+			return false;
+		}
+	}
+	float t = t0;
+	u.x = A.x + t*u.x;
+	u.y = A.y + t*u.y;
+	u.z = A.z + t*u.z;
+	return true;
 
+	/*
 	D3DXVec3Normalize(&u, &u);
 	D3DXVECTOR3 L = o - A;
 	float d = D3DXVec3Dot(&L, &u);
@@ -43,6 +75,11 @@ bool Sphere::intersection(D3DXVECTOR3& A, D3DXVECTOR3& u)
 	u.x = A.x + t*u.x;
 	u.y = A.y + t*u.y;
 	u.z = A.z + t*u.z;
-	return true;
+	return true;*/
 
+}
+
+D3DXVECTOR3 Sphere::getNormal(D3DXVECTOR3 inter)
+{
+	return inter - o;
 }

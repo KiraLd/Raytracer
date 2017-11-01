@@ -9,8 +9,8 @@ Objet::Objet()
 	spec = D3DXVECTOR3(255,255,255);
 	coef_reflexion = 0.f;
 	coef_refraction = 0.f;
-	c_ambiant = 0.05;
-	c_dif = 0.8;
+	c_ambiant = 0.01;
+	c_dif = 0.84;
 	c_spec = 0.15;
 	reflexion = false;
 	refraction = false;

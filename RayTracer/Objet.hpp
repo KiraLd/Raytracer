@@ -16,6 +16,7 @@ struct Objet
 	bool reflexion, refraction;
 	Objet();
 	virtual bool intersection(D3DXVECTOR3& o, D3DXVECTOR3& ray) = 0;
+	virtual D3DXVECTOR3 getNormal(D3DXVECTOR3 inter) = 0;
 };
 
 #endif

@@ -9,6 +9,7 @@ struct Sphere : public Objet
 	Sphere();
 	Sphere(float r);
 	bool intersection(D3DXVECTOR3& o, D3DXVECTOR3& ray);
+	D3DXVECTOR3 getNormal(D3DXVECTOR3 inter);
 };
 
 #endif

@@ -72,6 +72,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="Objet.cpp" />
+    <ClCompile Include="Plan.cpp" />
     <ClCompile Include="RT.cpp" />
     <ClCompile Include="SimplexNoise.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -82,6 +83,7 @@
     <ClInclude Include="Camera.hpp" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Objet.hpp" />
+    <ClInclude Include="Plan.hpp" />
     <ClInclude Include="RT.hpp" />
     <ClInclude Include="Sphere.hpp" />
     <ClInclude Include="Texture.hpp" />

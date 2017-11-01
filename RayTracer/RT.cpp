@@ -152,7 +152,7 @@ D3DXVECTOR3 RT::illumination(int min, D3DXVECTOR3& inter_point, D3DXVECTOR3& ray
 	}
 	else
 	{
-		D3DXVECTOR3 normale = inter_point - scene[min]->o;
+		D3DXVECTOR3 normale = scene[min]->getNormal(inter_point);
 		D3DXVec3Normalize(&normale, &normale);
 		D3DXVECTOR3 light_dir = inter_point - l.o;
 		D3DXVec3Normalize(&light_dir, &light_dir);
@@ -183,12 +183,7 @@ D3DXVECTOR3 RT::illumination(int min, D3DXVECTOR3& inter_point, D3DXVECTOR3& ray
 			couleur += scene[min]->ambiant * scene[min]->c_ambiant;
 			couleur += scene[min]->coef_reflexion*render_step(inter_point, reflect, i, j, min);
 		}
-		if (scene[min]->refraction && depth[j*largeur + i] < rec_max)
-		{
-			
-		}
 		couleur += scene[min]->ambiant * scene[min]->c_ambiant;
-		
 		
 	}
 
