@@ -32,6 +32,11 @@ struct RT
 	D3DXVECTOR3 illumination(int min, D3DXVECTOR3& inter_point, D3DXVECTOR3& ray, int i, int j);
 	D3DXVECTOR3 render_step(float i, float j);
 	D3DXVECTOR3 render_step(D3DXVECTOR3 origine, D3DXVECTOR3 dir, int i, int j, int min);
+	void setRecursionMax(int r);
+
+	//TODO: changer getImage
+	void saveImage(std::string file);
+	void showImg(int time);
 
 	
 

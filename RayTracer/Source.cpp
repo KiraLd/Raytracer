@@ -33,22 +33,21 @@ int main(int argc, char** argv)
 {
 
 
-	RT rt = RT(1, 1024, 768);
+	RT rt = RT(2, 1024, 768);
 	Sphere* s = new Sphere(5);
-	s->o.y += 3;
-	rt.scene[0] = s;
-	/*
 	Plan* p = new Plan();
-	p->o.x = 50;
-	rt.scene[0] = p;*/
+	p->setOrigine(50, -5, 0);
+	p->reflet(0.5);
+
+	rt.scene[0] = s;
+	rt.scene[1] = p;
+
 	clock_t tStart = clock();
 	rt.render();
-	printf("Time taken: %.2fs\n", (double)(clock() - tStart) / CLOCKS_PER_SEC);
-	rt.getImage();
-	namedWindow("Display window");
-	imshow("Display window", rt.img_final);                   
-	waitKey(100000);     
-	imwrite("test.jpeg", rt.img_final); 
+	printf("Temps de rendu: %.2fs\n", (double)(clock() - tStart) / CLOCKS_PER_SEC);
 
+	rt.showImg(100000);
+	rt.saveImage(string("test.jpg"));
+	
 	return 0;
 }

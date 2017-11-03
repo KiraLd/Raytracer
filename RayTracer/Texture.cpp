@@ -2,7 +2,7 @@
 
 const float pi = 3.1415926f;
 
-D3DXVECTOR3 getTexture(TEX t, float x, float y, float z, D3DXVECTOR3 ambiant, D3DXVECTOR3 dif, D3DXVECTOR3 spec)
+D3DXVECTOR3 getTexture(TEX_PROC t, float x, float y, float z, D3DXVECTOR3 ambiant, D3DXVECTOR3 dif, D3DXVECTOR3 spec)
 {
 	if (t == PERLIN)
 	{

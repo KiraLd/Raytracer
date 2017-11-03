@@ -11,6 +11,11 @@ Sphere::Sphere(float r) : Objet()
 	this->r = r;
 }
 
+void Sphere::setRayon(float R)
+{
+	r = R;
+}
+
 
 bool Sphere::intersection(D3DXVECTOR3& A, D3DXVECTOR3& u)
 {

@@ -3,6 +3,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
+using namespace cv;
 
 
 RT::RT(int n, int l, int h)
@@ -24,6 +28,7 @@ RT::RT(int n, int l, int h)
 	{
 		image[i] = new D3DXVECTOR3[h];
 	}
+	namedWindow("Raytracer");
 }
 
 inline float random()
@@ -266,4 +271,22 @@ void RT::getImage()
 			img_final.at<Vec3b>(j,i)[2] = (uchar)image[i][j].z;
 		}
 	}
+}
+
+void RT::saveImage(std::string file)
+{
+	getImage();
+	imwrite(file, img_final);
+}
+
+void RT::showImg(int time)
+{
+	getImage();
+	imshow("Raytracer", img_final);
+	waitKey(time);
+}
+
+void RT::setRecursionMax(int r)
+{
+	rec_max = r;
 }

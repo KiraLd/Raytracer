@@ -13,6 +13,10 @@ struct Light
 
 	Light();
 	Light(D3DXVECTOR3 at, D3DXVECTOR3 dif, D3DXVECTOR3 spec, float c_dif, float c_spec);
+	
+	void setOrigine(float x, float y, float z);
+	void setDiffuse(float b, float g, float r, float coef);
+	void setSpeculaire(float b, float g, float r, float coef);
 
 
 };
